@@ -36,6 +36,13 @@ public class RegisterUser extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        bannerText = findViewById(R.id.bannerText);
+        emailET = findViewById(R.id.emailEt);
+        passwordET = findViewById(R.id.passwordEt);
+        ageET = findViewById(R.id.ageET);
+        numberET = findViewById(R.id.numberET);
+        progressBar = findViewById(R.id.progressBar);
+
         banner = findViewById(R.id.banner);
         banner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,16 +58,6 @@ public class RegisterUser extends AppCompatActivity {
                 registerUser();
             }
         });
-
-        bannerText = findViewById(R.id.bannerText);
-        emailET = findViewById(R.id.emailEt);
-        passwordET = findViewById(R.id.passwordEt);
-        ageET = findViewById(R.id.ageET);
-        numberET = findViewById(R.id.numberET);
-        progressBar = findViewById(R.id.progressBar);
-
-
-
     }
 
     private void registerUser() {
@@ -83,13 +80,13 @@ public class RegisterUser extends AppCompatActivity {
 
         if(age.isEmpty()){
             ageET.setError("age id empty");
-            passwordET.requestFocus();
+            ageET.requestFocus();
             return;
         }
 
         if(number.isEmpty()){
             numberET.setError("number is empty");
-            passwordET.requestFocus();
+            numberET.requestFocus();
             return;
         }
 
@@ -113,8 +110,7 @@ public class RegisterUser extends AppCompatActivity {
                                                 , "User has been registered successfully!"
                                                 , Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
-
-                                        //redirect to login layout
+                                        startActivity(new Intent(RegisterUser.this, MainActivity.class));
                                     } else {
                                         Toast.makeText(RegisterUser.this
                                                 , "Failed to register! Try again!"
