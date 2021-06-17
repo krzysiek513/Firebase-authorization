@@ -44,7 +44,7 @@ public class ForgotPassword extends AppCompatActivity {
                 resetPassword();
             }
         });
-        
+
         backBTN = findViewById(R.id.backBTN);
         backBTN.setOnClickListener(new View.OnClickListener() {
             @Override

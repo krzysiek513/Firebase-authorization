@@ -113,7 +113,7 @@ public class RegisterUser extends AppCompatActivity {
                                         startActivity(new Intent(RegisterUser.this, MainActivity.class));
                                     } else {
                                         Toast.makeText(RegisterUser.this
-                                                , "Failed to register! Try again!"
+                                                , "Failed to register! Try again! inner"
                                                 , Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
